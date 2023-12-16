@@ -1985,14 +1985,13 @@ void TFT_eSprite::drawChar(int32_t x, int32_t y, uint16_t c, uint32_t color, uin
 {
   if ( _vpOoB || !_created ) return;
 
-  if (c < 32) return;
 #ifdef LOAD_GLCD
 //>>>>>>>>>>>>>>>>>>
 #ifdef LOAD_GFXFF
   if(!gfxFont) { // 'Classic' built-in font
 #endif
 //>>>>>>>>>>>>>>>>>>
-
+  if (c < 32) return;
   if ((x >= _vpW - _xDatum) || // Clip right
       (y >= _vpH - _yDatum))   // Clip bottom
     return;
